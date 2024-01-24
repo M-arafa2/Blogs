@@ -1,0 +1,72 @@
+.py-60 {
+    padding-top: 60px;
+    padding-bottom: 60px;
+}
+.row-gap-24 {
+    row-gap: 24px;
+}
+
+.content_view {
+    background-color: $white_color;
+    border-radius: 0.3rem;
+    padding: 1rem;
+}
+
+// Btns
+.btn-green {
+    background-color: $green-color;
+    color: white;
+    border-color: $green-color;
+    &:focus {
+        color: white;
+        background-color: $green-color;
+        outline: none;
+        border-color: $green-color;
+    }
+    &:hover {
+        color: white;
+        background-color: $green-color-hover;
+        border-color: $green-color;
+    }
+}
+
+.status_info {
+    padding: 8px 13px;
+    color: $white_color;
+    background-color: $info-color;
+    border-radius: 0.3rem;
+}
+.status_green {
+    padding: 8px 13px;
+    color: $white_color;
+    background-color: $green-color;
+    border-radius: 0.3rem;
+}
+.status_red {
+    padding: 8px 13px;
+    color: $white_color;
+    background-color: $red-color;
+    border-radius: 0.3rem;
+}
+
+//remove arrow input number
+/* Chrome, Safari, Edge, Opera */
+.rmv-arw-inp::-webkit-outer-spin-button,
+.rmv-arw-inp::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+/* Firefox */
+.rmv-arw-inp[type="number"] {
+    -moz-appearance: textfield;
+}
+// set helpers width
+.w-fit {
+    width: fit-content;
+}
+
+.img-product {
+    padding: 3px !important;
+    height: 60px !important;
+    object-fit: cover !important;
+}

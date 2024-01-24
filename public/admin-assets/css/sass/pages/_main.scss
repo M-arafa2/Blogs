@@ -1,0 +1,260 @@
+body {
+    font-family: "Noto Kufi Arabic", sans-serif;
+    background-color: $section-color;
+    font-size: 14px;
+    scroll-behavior: smooth;
+}
+// All Rest
+* {
+    @include all-reset;
+}
+// a Reset
+a {
+    @include a-reset;
+}
+// reset btn
+button {
+    border: none;
+    outline: none;
+    background-color: transparent;
+    padding: 0;
+}
+// reset form-control
+.form-control {
+    font-size: 14px !important;
+    border: 1px solid $light-grey-color !important;
+}
+// main-section
+.main-section {
+    padding: 1.5rem 0;
+    min-height: calc(100vh - 41.88px - 54.5px - 69px);
+}
+// Modal
+.modal-header {
+    .modal-title {
+        font-size: 15px !important;
+    }
+    .btn-close {
+        margin: unset !important;
+    }
+}
+// Start Show User
+.tab-pane {
+    display: none;
+    &.active {
+        display: block;
+    }
+}
+// ENd Show User
+
+/* status box style */
+.status_box {
+    position: relative;
+    color: #fff;
+    border-radius: 0.25rem;
+    box-shadow: 0 0 1px rgb(0 0 0 / 13%), 0 1px 3px rgb(0 0 0 / 20%);
+    &:hover .icon {
+        > svg {
+            transform: scale(1.1);
+        }
+    }
+    .data {
+        padding: 10px;
+        > h3 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin: 0 0 10px;
+            white-space: nowrap;
+            z-index: 5;
+        }
+        > p {
+            font-size: 16px;
+            z-index: 5;
+        }
+    }
+    .icon {
+        position: absolute;
+        top: 20px;
+        left: 15px;
+        > svg {
+            font-size: 50px;
+            transition: transform 0.5s;
+        }
+    }
+    .more {
+        position: relative;
+        display: block;
+        text-align: center;
+        padding: 5px 0;
+        background-color: rgba(0, 0, 0, 0.1);
+        z-index: 10;
+        color: #fff;
+        &:hover {
+            background-color: rgba(0, 0, 0, 0.15);
+        }
+    }
+}
+
+.blue-box {
+    background-color: #17a2b8;
+}
+
+.success-box {
+    background-color: #28a745;
+}
+
+.danger-box {
+    background-color: #dc3545;
+}
+
+.warning-box {
+    background-color: #ffc107;
+}
+
+.blue-icon {
+    color: #148a9d;
+}
+
+.success-icon {
+    color: #228e3b;
+}
+
+.danger-icon {
+    color: #bb2d3b;
+}
+
+.warning-icon {
+    color: #d9a406;
+}
+
+// Start Chat Section
+.chat-section {
+    .info {
+        margin-bottom: 5rem;
+        .img {
+            width: 100px;
+            height: 100px;
+            border-radius: 15px;
+            -webkit-border-radius: 15px;
+            -moz-border-radius: 15px;
+            -ms-border-radius: 15px;
+            -o-border-radius: 15px;
+            object-fit: cover;
+            box-shadow: 0 3px 5px 0 rgb(0 0 0 / 21%);
+        }
+        .name {
+            font-size: 18px;
+        }
+    }
+    .box-chat {
+        display: flex;
+        align-items: flex-end;
+        flex-direction: column;
+        gap: 0.5rem;
+        &:not(:last-child) {
+            margin-bottom: 0.5rem;
+        }
+        .msg {
+            padding: 0.6rem 1.2rem;
+            background-color: white;
+            color: black;
+            border: 1px solid $main-border;
+            box-shadow: 0 3px 5px 0 rgb(0 0 0 / 21%);
+            border-radius: 20px 20px 20px 0;
+            -webkit-border-radius: 20px 20px 20px 0;
+            -moz-border-radius: 20px 20px 20px 0;
+            -ms-border-radius: 20px 20px 20px 0;
+            -o-border-radius: 20px 20px 20px 0;
+        }
+        .img-small {
+            width: 15px;
+            height: 15px;
+            object-fit: cover;
+            box-shadow: 0 3px 5px 0 rgb(0 0 0 / 21%);
+            border-radius: 50%;
+            -webkit-border-radius: 50%;
+            -moz-border-radius: 50%;
+            -ms-border-radius: 50%;
+            -o-border-radius: 50%;
+        }
+        &.box-chat-from {
+            align-items: flex-start;
+            .msg {
+                background-color: #3e3e32;
+                color: white;
+                border-radius: 20px 20px 0 20px;
+                -webkit-border-radius: 20px 20px 0 20px;
+                -moz-border-radius: 20px 20px 0 20px;
+                -ms-border-radius: 20px 20px 0 20px;
+                -o-border-radius: 20px 20px 0 20px;
+            }
+        }
+    }
+    .typing {
+        display: flex;
+        gap: 1.5rem;
+        align-items: center;
+        .img {
+            width: 45px;
+            height: 45px;
+            object-fit: cover;
+            box-shadow: 0 3px 5px 0 rgb(0 0 0 / 21%);
+            border-radius: 50%;
+            -webkit-border-radius: 50%;
+            -moz-border-radius: 50%;
+            -ms-border-radius: 50%;
+            -o-border-radius: 50%;
+        }
+    }
+    .box-send {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        height: 48.19px;
+        margin-top: 20px;
+        .inp-msg {
+            padding: 0 1rem;
+            flex: 1;
+            border-radius: 12px;
+            background-color: white;
+            box-shadow: 0 3px 7px 0 rgb(0 0 0 / 21%);
+            border: 1px solid $main-border;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            .btn-icon {
+                font-size: 18px;
+                color: #989898;
+                background: transparent;
+                border: 0 !important;
+                outline: 0 !important;
+            }
+            .inp {
+                flex: 1;
+                height: 100%;
+                border: 0 !important;
+                outline: 0 !important;
+                resize: none;
+                padding-top: 14px;
+            }
+            .uploadBtn {
+                display: none;
+            }
+        }
+        .btn-send {
+            background-color: #3e3e32;
+            color: white;
+            height: 48.19px;
+            width: 48.19px;
+            border-radius: 50%;
+            border: 0 !important;
+            outline: 0 !important;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+        }
+    }
+}
+// End Chat Section

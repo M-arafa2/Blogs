@@ -1,0 +1,370 @@
+* {
+    @include reset-all;
+}
+html {
+    scroll-behavior: smooth;
+}
+body {
+    min-height: calc(100vh - 65.5px - 62px);
+    font-family: "Cairo", sans-serif;
+    font-size: 14px;
+    color: $mian-text-color;
+    overflow: hidden;
+}
+ul {
+    @include reset-ul;
+}
+a {
+    @include a-reset;
+}
+// reset btn
+button {
+    border: none;
+    outline: none;
+}
+// Reset Input
+input:focus,
+select:focus {
+    outline: none;
+}
+
+input {
+    direction: rtl !important;
+    &:focus::placeholder {
+        opacity: 0;
+        transition: $sm-transition;
+    }
+}
+
+.section {
+    padding-top: calc(62px + 1rem) !important;
+    padding-bottom: calc(65.5px + 1rem) !important;
+    @media print {
+        padding-top: 1rem !important;
+        padding-bottom: 1rem !important;
+    }
+}
+.landing-page {
+    position: relative;
+    &::before {
+        content: "";
+        position: absolute;
+        top: -25px;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        width: 100%;
+        height: calc(100% + 30px);
+        background: #111727;
+        z-index: -1;
+        transform: skewY(-7deg);
+        transform-origin: top left;
+    }
+}
+
+.lan-hr {
+    background-color: #96a3cb;
+    height: 3px;
+}
+
+.main-swiper {
+    &.set-h {
+        height: 580px;
+    }
+    .swiper-wrapper {
+        .swiper-slide {
+            width: 100% !important;
+            height: 480px;
+            .box-img {
+                position: relative;
+                @include full-w-h;
+                img {
+                    @include full-w-h;
+                    object-fit: cover;
+                    border-radius: 32px;
+                }
+                &.img-bg {
+                    width: 93%;
+                    margin: auto;
+                    &::before {
+                        content: "";
+                        @include reset-position;
+                        @include full-w-h;
+                        border-radius: 32px;
+                        background-image: linear-gradient(
+                            to bottom,
+                            rgb(206 207 207 / 4%),
+                            rgb(255 255 255 / 8%),
+                            rgb(0 0 0 / 50%),
+                            rgb(0 0 0 / 95%)
+                        );
+                    }
+                    &::after {
+                        content: "";
+                        @include reset-position;
+                        @include full-w-h;
+                        border-radius: 32px;
+                        transform: scale(1) rotate(-4deg);
+                        z-index: -1;
+                    }
+                    &.main {
+                        &::after {
+                            background-color: $main-color;
+                        }
+                    }
+                    &.yellow {
+                        &::after {
+                            background-color: $yellow-color;
+                        }
+                    }
+                    &.pink {
+                        &::after {
+                            background-color: $pink-color;
+                        }
+                    }
+                    .name {
+                        position: absolute;
+                        left: 50%;
+                        bottom: 7%;
+                        transform: translateX(-50%);
+                        width: 100%;
+                        text-align: center;
+                        font-size: 24px;
+                        font-weight: 600;
+                        color: $white-color;
+                    }
+                }
+                &.img-border {
+                    width: 95%;
+                    margin: auto;
+                    border: 2px solid $yellow-color;
+                    border-radius: 32px;
+                    img {
+                        transform: translate(-10px, -10px);
+                    }
+                    .name {
+                        display: block;
+                        text-align: center;
+                        font-size: 24px;
+                        margin-top: 15px;
+                        font-weight: 600;
+                    }
+                }
+            }
+        }
+    }
+    .swiper-btn {
+        @include circle(38px, 38px);
+        background-color: $main-color;
+        color: $white-color;
+        &:after {
+            font-size: 13px !important;
+        }
+    }
+}
+
+.section-bg {
+    background-color: $section-color;
+}
+
+.splash-loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    visibility: visible;
+    opacity: 1;
+    transition: $sm-transition;
+    background-color: $white-color;
+    @include flex-center;
+    flex-direction: column;
+    z-index: 1000;
+    img {
+        width: 180px;
+    }
+    &.splash-loader-remove {
+        visibility: hidden;
+        opacity: 0;
+    }
+    .text {
+        position: absolute;
+        bottom: 5px;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        p {
+            text-align: center;
+            margin-bottom: 6px;
+        }
+        .loading-bar {
+            width: 100px;
+            height: 2px;
+            background-color: #d6cec2;
+            border-radius: 10px;
+            margin-top: 15px;
+            overflow: hidden;
+            position: relative;
+            &::after {
+                content: "";
+                width: 50px;
+                height: 2px;
+                position: absolute;
+                background-color: $black-color;
+                transform: translateX(-20px);
+                animation: loop 2s ease infinite;
+                @keyframes loop {
+                    0%,
+                    100% {
+                        transform: translateX(-28px);
+                    }
+                    50% {
+                        transform: translateX(78px);
+                    }
+                }
+            }
+        }
+    }
+}
+
+.onboard-swiper {
+    width: 100%;
+    height: 100vh;
+    .swiper-wrapper {
+        .swiper-slide {
+            .box-img {
+                @include full-w-h;
+                position: relative;
+                &::before {
+                    content: "";
+                    @include reset-position;
+                    @include full-w-h;
+                    background-image: linear-gradient(
+                        to bottom,
+                        rgb(206 207 207 / 4%),
+                        rgb(255 255 255 / 8%),
+                        rgb(0 0 0 / 50%),
+                        rgb(0 0 0 / 95%)
+                    );
+                }
+                .skip {
+                    position: absolute;
+                    right: 20px;
+                    top: 30px;
+                    color: $white-color;
+                    font-weight: 300;
+                    font-size: 12px;
+                }
+                img {
+                    @include full-w-h;
+                    object-fit: cover;
+                }
+                .content-text {
+                    position: absolute;
+                    color: $white-color;
+                    bottom: 155px;
+                    left: 50%;
+                    transform: translate(-50%, 10px);
+                    width: 100%;
+                    text-align: center;
+                    .name {
+                        font-weight: 700;
+                        font-size: 27px;
+                        margin-bottom: 10px;
+                    }
+                    span {
+                        font-weight: 300;
+                        font-size: 15px;
+                    }
+                }
+                .close-btn {
+                    position: absolute;
+                    left: 50% !important;
+                    top: 89% !important;
+                    transform: translateX(-50%);
+                    background-color: $white-color;
+                    width: 210px;
+                    height: 42px;
+                    @include flex-center;
+                    gap: 7px;
+                    font-weight: 400;
+                    font-size: 13px;
+                    border-radius: 10px;
+                    color: $black-color;
+                    &::before {
+                        content: "";
+                        position: absolute;
+                        bottom: -16px;
+                        left: 50%;
+                        transform: translateX(-50%);
+                        width: 60%;
+                        height: 4px;
+                        border-radius: 100px;
+                        background-color: $white-color;
+                    }
+                }
+            }
+        }
+    }
+    .swiper-btn {
+        background-color: $white-color;
+        width: 210px;
+        height: 42px;
+        @include flex-center;
+        gap: 7px;
+        font-weight: 400;
+        font-size: 13px;
+        border-radius: 10px;
+        color: $black-color;
+        &::after {
+            content: "" !important;
+        }
+        left: 50% !important;
+        top: 93% !important;
+        transform: translateX(-50%);
+        &::before {
+            content: "";
+            position: absolute;
+            bottom: -16px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60%;
+            height: 4px;
+            border-radius: 100px;
+            background-color: $white-color;
+        }
+        &.swiper-button-disabled {
+            display: none;
+        }
+    }
+    .won-pagination {
+        bottom: 110px !important;
+        .swiper-pagination-bullet {
+            border: 1px solid $white-color;
+            opacity: 1;
+            height: 8px;
+            width: 8px;
+            transition: $sm-transition;
+            &.swiper-pagination-bullet-active {
+                width: 32px !important;
+                height: 8px !important;
+                border-radius: 8px;
+                background-color: $white-color;
+            }
+        }
+    }
+}
+
+.categories-swiper,
+.filters-swiper,
+.offer-swiper {
+    height: fit-content;
+}
+.categories-swiper {
+    .swiper-wrapper {
+        padding: 8px 6px 8px 0px;
+    }
+}
+
+#search-cus::-webkit-search-cancel-button {
+    cursor: pointer;
+}

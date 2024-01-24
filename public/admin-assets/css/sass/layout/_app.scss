@@ -1,0 +1,202 @@
+.app {
+    min-height: 100vh;
+    overflow-x: hidden;
+    display: flex;
+    .sidebar {
+        -ms-overflow-style: none; /* IE and Edge */
+        scrollbar-width: none; /* Firefox */
+        &::-webkit-scrollbar {
+            display: none; /* Chrome, Safari and Opera */
+        }
+        background-color: $main-dark;
+        width: 240px;
+        position: fixed;
+        overflow-y: auto;
+        height: 100%;
+        right: 0;
+        transition: $transition;
+        z-index: 111;
+        @include maxWidth(md) {
+            right: -240px;
+        }
+        .close {
+            padding: 4px 4px 4px 0px;
+            color: white;
+            font-size: 30px;
+            position: absolute;
+            top: 0px;
+            cursor: pointer;
+            display: none;
+            left: 10px;
+            @include maxWidth(md) {
+                display: block;
+            }
+        }
+        .logo {
+            display: block;
+            width: 120px;
+            margin: 20px auto;
+        }
+        .list {
+            padding: 0;
+            margin: 0;
+            margin-right: 7px;
+            .list-item {
+                white-space: nowrap;
+                a {
+                    color: white;
+                    width: 100%;
+                    padding: 16px;
+                    height: 50px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    position: relative;
+                    gap: 7px;
+                    transition: $transition;
+                    border-radius: 0 7px 7px 0;
+                    svg {
+                        width: 22px;
+                        font-size: 1.1rem;
+                    }
+                    .arrow {
+                        font-size: 15px;
+                        transition: transform ease-in-out 0.3s;
+                    }
+                    &:not(.active a):hover {
+                        cursor: pointer;
+                        box-shadow: 8px 12px 4px -12px $main-color;
+                    }
+                    .badge-count {
+                        position: absolute;
+                        background-color: $light-blue;
+                        top: 50%;
+                        left: 45px;
+                        transform: translateY(-50%);
+                        -webkit-transform: translateY(-50%);
+                        -moz-transform: translateY(-50%);
+                        -ms-transform: translateY(-50%);
+                        -o-transform: translateY(-50%);
+                        min-width: 20px;
+                        font-size: 13px;
+                        height: 20px;
+                    }
+                    &[aria-expanded="true"] {
+                        .arrow {
+                            transform: rotate(90deg);
+                        }
+                    }
+                }
+            }
+            .list-item.active a {
+                color: $main-dark;
+                background-color: $section-color;
+            }
+            .item-collapse {
+                margin-top: 4px;
+                margin-right: 22px;
+                list-style: none;
+                position: relative;
+                &::before {
+                    position: absolute;
+                    right: -7px;
+                    top: 0;
+                    border-radius: 10px;
+                    width: 3px;
+                    height: 100%;
+                    background-color: $light-grey-color;
+                    content: "";
+                    -webkit-border-radius: 10px;
+                    -moz-border-radius: 10px;
+                    -ms-border-radius: 10px;
+                    -o-border-radius: 10px;
+                }
+                .list-item a {
+                    font-size: 13px;
+                    padding: 12px;
+                    height: unset !important;
+                    svg,
+                    i {
+                        font-size: 16px;
+                    }
+                    .badge-count {
+                        min-width: 20px;
+                        font-size: 12px;
+                        height: 20px;
+                        left: 32px;
+                    }
+                }
+            }
+        }
+    }
+    .main-side {
+        width: calc(100% - 240px);
+        margin: 0 auto 0 0;
+        transition: $transition;
+        overflow-y: auto;
+        @include maxWidth(md) {
+            width: 100% !important;
+        }
+    }
+    &.colse-and-open .sidebar {
+        width: 51px;
+        .list {
+            margin: 0;
+            li {
+                a {
+                    padding: 23px;
+                    padding-right: 17px;
+                    div {
+                        display: flex;
+                        align-items: center;
+                        gap: 11px;
+                    }
+                }
+            }
+        }
+        @include maxWidth(md) {
+            width: 240px;
+            right: 0;
+        }
+        .list {
+            transition: $transition;
+            .list-item {
+                overflow: hidden;
+                a {
+                    gap: 18px;
+                    .badge-count {
+                        display: none;
+                    }
+                }
+            }
+        }
+        .logo {
+            opacity: 0;
+            transition: $transition;
+            -webkit-transition: $transition;
+            -moz-transition: $transition;
+            -ms-transition: $transition;
+            -o-transition: $transition;
+        }
+        &:hover {
+            width: 240px;
+            .list {
+                .list-item {
+                    overflow: unset;
+                    a {
+                        gap: 7px;
+                        .badge-count {
+                            display: flex;
+                        }
+                    }
+                }
+            }
+            .logo {
+                opacity: 1;
+            }
+        }
+    }
+    &.colse-and-open .main-side {
+        width: calc(100% - 50px);
+    }
+}

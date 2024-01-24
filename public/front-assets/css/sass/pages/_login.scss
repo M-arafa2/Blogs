@@ -1,0 +1,83 @@
+.login-section {
+    .img-holder {
+        @include full-w-h;
+        text-align: center;
+        img {
+            width: 215px;
+        }
+    }
+    .login-form {
+        .welcome-text {
+            h2 {
+                font-size: 30px;
+                font-weight: 400;
+                margin-bottom: 0px;
+            }
+            h3 {
+                font-size: 30px;
+                font-weight: bold;
+                margin-bottom: 10px;
+            }
+        }
+        .inp-holder {
+            border-bottom: 1px solid #bfbdbd;
+
+            margin-bottom: 30px;
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            flex-direction: column;
+            .holder {
+                width: 100%;
+                @include flex-center;
+                justify-content: flex-start;
+                gap: 6px;
+            }
+            input {
+                border: none;
+                width: 100%;
+                font-size: 15px;
+                padding-bottom: 6px;
+            }
+        }
+    }
+    .custom-text {
+        margin-top: 40px;
+        text-align: center;
+        p {
+            color: #aeacac;
+            font-size: 12px;
+            margin-bottom: 0;
+            a {
+                margin-right: 7px;
+                font-weight: 700;
+                font-size: 13px;
+                color: #575757;
+            }
+        }
+    }
+    .login-label {
+        font-size: 13px;
+        color: #b5b4b4;
+        display: block;
+        font-weight: 600;
+    }
+    .container-input {
+        @include flex-between;
+        justify-content: space-evenly !important;
+        .code-inp {
+            width: 55px;
+            height: 48px;
+            border: none;
+            border-bottom: 2px solid #e2e2e2;
+            text-align: center;
+            font-size: 30px;
+            color: $main-color;
+            caret-color: $main-color;
+            transition: $main-transition;
+            &:focus {
+                border-bottom-color: $main-color;
+            }
+        }
+    }
+}
