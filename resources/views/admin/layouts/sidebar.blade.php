@@ -347,7 +347,14 @@
         </div>
     </a>
 </li>
-
+<li class="list-item">
+    <a href="{{ route('admin.blogs.index') }}">
+        <div>
+            <i class="fa-solid fa-clipboard icon"></i>
+            Blogs
+        </div>
+    </a>
+</li>
 <li class="list-item">
     <a data-bs-toggle="collapse" href="#services" aria-expanded="false">
         <div>

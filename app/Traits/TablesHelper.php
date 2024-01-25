@@ -85,7 +85,7 @@ trait TablesHelper
     }
     public function addImage($row, string $imgColumn = 'image', string $width = '100px')
     {
-        $image = "<a href='" . $row->$imgColumn . "'><img style='width:" . $width . ";' src='" . $row->$imgColumn . "' ></a>";
+        $image = "<a href='/uploads/" . $row->$imgColumn . "'><img style='width:" . $width . ";' src='/uploads/" . $row->$imgColumn . "' ></a>";
         return $image;
 
     }
@@ -106,7 +106,7 @@ trait TablesHelper
         data-id = '" . $row->id . "'
         data-column='" . $endata . "'
         data-bs-toggle='modal' 
-        data-bs-target='#editModal' ><i class='ti-pencil-alt'></i></button>";
+        data-bs-target='#editModal' ><i <i class='fa-solid fa-pen'></i>></i></button>";
         $viewButton = "<button class='btn btn-secondary btn-sm viewmodalbtn mx-1 '
         id='option-" . $row->id . "'
         data-id = '" . $row->id . "'
@@ -120,7 +120,7 @@ trait TablesHelper
             $disabled = '';
         }
         $deleteButton = "<button " . $disabled . " class='btn btn-sm btn-danger deletebtn' 
-          data-id='" . $row->id . "'><i class='ti-trash'></i></button>";
+          data-id='" . $row->id . "'><i class='fa-solid fa-trash'></i></button>";
         return "<div style='display:flex;' >"
                                     . ($viewbtn == true ? $viewButton : '') . " "
                                     . ($editbtn == true ? $updateButton : '') . " "

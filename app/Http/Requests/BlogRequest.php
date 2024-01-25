@@ -23,21 +23,24 @@ class BlogRequest extends FormRequest
      */
     public function rules()
     {
+        dump($this->request);
 
         $rules = [
 
 
             'title' => 'required|string|min:3',
-            'content' => 'required|string|min:20',
+
         ];
         if($this->isMethod('POST')) {
             $rules += [
                 'image' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:4048',
+                'content' => 'required|string|min:20',
             ];
         }
         if($this->isMethod('PATCH')) {
             $rules += [
                 'image' => 'sometimes|image|mimes:jpg,png,jpeg,gif,svg|max:4048',
+                'content' => 'sometimes|string|min:20',
             ];
         }
         return $rules;

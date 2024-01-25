@@ -1,5 +1,5 @@
 @extends('admin.layouts.admin')
-@section('title','العملاء')
+@section('title','Blogs')
 @section('content')
 <section class="">
   <nav aria-label="breadcrumb ">
@@ -13,7 +13,7 @@
     <x-modals.image inputlabel="image" inputid="cimage" inputname="image"/>
     <textarea id="ccontent" name="content" ></textarea>
   </x-modals>
-  <button id="createModalBtn" class="btn btn-primary " data-bs-toggle="modal" data-bs-target="#createModal">New Blog</button>
+  <button id="createModalBtn" class="btn btn-dark " data-bs-toggle="modal" data-bs-target="#createModal">New Blog</button>
   <x-modals modalid="editModal"  modaltitle="Edit" >
     <x-modals.input inputlabel="title" inputid="edittitle" inputname="name" />
     <x-modals.image inputlabel="image" inputid="editimage" inputname="image"/>
@@ -218,8 +218,9 @@
             
                     }
                     fd.append('title',$(`#${prefix}title`).val().trim())
-                    fd.append('content',$(`#${prefix}content`).val().trim())
-                    
+                    if($(`#${prefix}content`).val()!= ''){
+                        fd.append('content',$(`#${prefix}content`).val().trim())
+                    }
                     return fd;
                 }
         

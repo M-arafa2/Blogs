@@ -24,7 +24,7 @@ class BlogController extends Controller
                     return $this->addAction(
                         $row,
                         ['id','title','image','content','created_at'],
-                        true,
+                        false,
                         true,
                         true,
                     );
@@ -40,20 +40,24 @@ class BlogController extends Controller
 
     public function store(BlogRequest $request)
     {
-        $path = $request->file('image')->store('/images/blogs');
+        $validated = $request->validated();
+        $path = $request->file('image')->store('/images/blogs', ['disk' =>   'uploads']);
         $validated['image'] = $path;
-        $blog = Blogs::create($request->validated());
+        $blog = Blogs::create($validated);
         return $this->success('Created', [], 201);
     }
 
 
     public function update(BlogRequest $request, Blogs $blog)
     {
+        $validated = $request->validated();
         if($request->file('image')) {
-            $image_path = $request->file('image')->store('/images/blogs');
-            $validated['image'] = $image_path;
+
+            $path = $request->file('image')->store('/images/blogs', ['disk' =>   'uploads']);
+            $validated['image'] = $path;
         }
-        $blog->update($request->validated());
+        dump($validated);
+        $blog->update($validated);
         return $this->success('Updated', [], 200);
 
 
