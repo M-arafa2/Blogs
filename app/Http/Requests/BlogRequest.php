@@ -23,7 +23,6 @@ class BlogRequest extends FormRequest
      */
     public function rules()
     {
-        dump($this->request);
 
         $rules = [
 

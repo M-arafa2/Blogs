@@ -56,7 +56,6 @@ class BlogController extends Controller
             $path = $request->file('image')->store('/images/blogs', ['disk' =>   'uploads']);
             $validated['image'] = $path;
         }
-        dump($validated);
         $blog->update($validated);
         return $this->success('Updated', [], 200);
 
